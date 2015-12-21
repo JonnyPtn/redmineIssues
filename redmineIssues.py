@@ -45,7 +45,7 @@ def get_build(bot, trigger):
     bot.rm.key = bot.rmdb.get_channel_value(trigger.sender,"apikey")
     bot.rm.url = bot.rmdb.get_channel_value(trigger.sender,"url")
     project = bot.rm.project.get(bot.rmdb.get_channel_value(trigger.sender,"project"))
-    bot.reply(project.versions[len(project.versions)-3])
+    bot.reply(project.versions[len(project.versions)-2])
 
 @module.interval(20)
 def check_new_build(bot):
