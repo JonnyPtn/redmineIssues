@@ -57,8 +57,8 @@ def check_new_build(bot):
         except:
             project = None
         if project is not None:
-            latestBuild = project.versions[len(project.versions)-3]
+            latestBuild = project.versions[len(project.versions)-2]
             lastBuild = bot.rmdb.get_channel_value(channel,"lastbuild")
-            if lastBuild.__str__() != latestBuild.__str__():
+            if lastBuild.__str__() >= latestBuild.__str__():
                 bot.notice("A new build has been triggered! New Build is " + latestBuild.__str__(),channel)
                 bot.rmdb.set_channel_value(channel,"lastbuild",latestBuild.__str__())
